@@ -1,0 +1,41 @@
+{
+   "name": "new-typeorm-project",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "@types/express": "^4.17.13",
+      "@types/morgan": "^1.9.3",
+      "@types/multer": "^1.4.7",
+      "@types/node": "^8.0.29",
+      "nodemon": "^2.0.14",
+      "ts-node": "3.3.0",
+      "tsconfig-paths": "^3.11.0",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "@types/cors": "^2.8.12",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "http-status-codes": "^2.1.4",
+      "joi": "^17.4.2",
+      "morgan": "^1.10.0",
+      "multer": "^1.4.3",
+      "mysql": "npm:mysql2@^2.1.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.38",
+      "uuidv4": "^6.2.12",
+      "winston": "^3.3.3"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+      "build": "rm -rf build && tsc -p .",
+      "dev": "nodemon --exec ts-node src/index.ts",
+      "build-dev": "tsc && cp ./src/config/.env ./build/config/.env",
+      "start:prod": "node ./build/index.js",
+      "migration:generate": "npm run typeorm -- migration:generate --connection  --name ",
+      "migration:run": "npm run typeorm -- migration:run",
+      "migration:revert": "npm run typeorm -- migration:revert"
+   }
+}
